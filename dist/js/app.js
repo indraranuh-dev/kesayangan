@@ -33,14 +33,30 @@
         $('.wrapper.third').show();
         $('.wrapper.second').remove();
         $('#confirm-modal').modal('hide')
-        anime({
-            targets: '.wrapper.third .creative',
-            translateY: ['-40%', '-50%'],
-            opacity: [0, 1],
-            easing: 'easeInOutCirc',
-            delay: 1500,
-            duration: 500,
-        })
+
+        const a = window.matchMedia("(max-width: 700px)");
+        let v;
+        if (a.matches) {
+            anime({
+                targets: '.wrapper.third .creative',
+                translateY: ['-40%', '-50%'],
+                translateX: '-50%',
+                opacity: [0, 1],
+                easing: 'easeInOutCirc',
+                delay: 1500,
+                duration: 500,
+            })
+        } else {
+            anime({
+                targets: '.wrapper.third .creative',
+                translateY: ['-40%', '-50%'],
+                opacity: [0, 1],
+                easing: 'easeInOutCirc',
+                delay: 1500,
+                duration: 500,
+            })
+        }
+
     }
 
     $.animeLastSection = () => {
